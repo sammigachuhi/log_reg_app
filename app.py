@@ -84,7 +84,7 @@ app.layout = dbc.Container([
     html.H4("Dataset Explorer"),
     dag.AgGrid(
         id="data-grid",
-        rowData=df.head(100).to_dict('records'),
+        rowData=df.to_dict('records'),
         columnDefs=[{"field": i} for i in df.columns],
         dashGridOptions={"pagination": True},
         style={"height": "400px"}

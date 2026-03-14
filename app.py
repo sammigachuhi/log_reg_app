@@ -42,7 +42,7 @@ app.layout = dbc.Container([
                     dbc.Label("Solver Algorithm:"),
                     dcc.Dropdown(
                         id='solver-selector',
-                        options=[{'label': i, 'value': i} for i in ['lbfgs', 'sag', 'saga', 'liblinear', 'newton-cg']],
+                        options=[{'label': i, 'value': i} for i in ['lbfgs', 'sag', 'saga', 'newton-cg']],
                         value='lbfgs',
                         clearable=False,
                         className="mb-3"
@@ -111,7 +111,7 @@ def update_model(n_clicks, solver, max_iter):
     acc = accuracy_score(y_test, y_pred)
 
     # Permutation Importance (n_repeats set to 10 for balance of speed and accuracy)
-    perm_importance = permutation_importance(model, X_test, y_test, n_repeats=10, random_state=42)
+    perm_importance = permutation_importance(model, X_test, y_test, n_repeats=2, random_state=42)
     perm_df = pd.DataFrame({
         'Feature': X_test.columns,
         'Importance': perm_importance.importances_mean

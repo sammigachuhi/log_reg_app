@@ -111,7 +111,7 @@ def update_model(n_clicks, solver, max_iter):
     acc = accuracy_score(y_test, y_pred)
 
     # Permutation Importance (n_repeats set to 10 for balance of speed and accuracy)
-    perm_importance = permutation_importance(model, X_test, y_test, n_repeats=2, random_state=42)
+    perm_importance = permutation_importance(model, X_test, y_test, n_repeats=2, random_state=42, n_jobs=1)
     perm_df = pd.DataFrame({
         'Feature': X_test.columns,
         'Importance': perm_importance.importances_mean

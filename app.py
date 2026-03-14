@@ -103,7 +103,7 @@ def update_model(n_clicks, solver, max_iter):
     max_iter = max_iter if max_iter else 200
 
     # Train Model
-    model = LogisticRegression(multi_class="multinomial", solver=solver, max_iter=max_iter, random_state=42)
+    model = LogisticRegression(solver=solver, max_iter=max_iter, random_state=42)
     model.fit(X_train, y_train)
 
     # Accuracy

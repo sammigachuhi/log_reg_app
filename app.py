@@ -28,6 +28,8 @@ X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, 
 # --- App Setup ---
 app = Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
 
+server = app.server
+
 app.layout = dbc.Container([
     html.H2("Fetal Health: Interactive ML Dashboard", className="mt-4 mb-4 text-center"),
     
